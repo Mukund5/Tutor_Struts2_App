@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 
+	2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd"> -->
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<!-- We can have more than one xml file for defining the actions , but struts.xml 
+		is the first file that is looked up for actions. Another file can be called 
+		using below syntax -->
+	<!-- <include file="login.xml"> -->
+
+
+	<!-- If you want url to have grouping we can use namespaces like below -->
+	<!-- namespace="/test" -->
+	<!-- Syntax: http://<<IP>>:<<Port>>/<<Application name>>/<<Namespace name>>/<<Action 
+		name>> Ex: http://localhost:8080/Struts2Demo/login/LoginAction.action -->
+
+
+	<package name="default" namespace="/test" extends="struts-default">
+
+		<action name="getResult" class="org.mukund.test.action.TestAction">
+			<result name="success">/jsps/success.jsp</result>
+			<result name="failure">/jsps/error.jsp</result>
+		</action>
+
+		<action name="getResultService" class="org.mukund.test.action.BusinessServiceAction">
+			<result name="success">/jsps//success.jsp</result>
+			<result name="failure">/jsps/error.jsp</result>
+		</action>
+
+		<action name="getResultServiceUI" class="org.mukund.test.action.BusinessServiceUIAction">
+			<result name="success">/jsps//success.jsp</result>
+			<result name="failure">/jsps/error.jsp</result>
+		</action>
+
+
+		<!-- Wild cards -->
+		<!-- Ex: Here all actions that start with search are directed to this jsp -->
+		<action name="search*">
+			<result name="success">/jsps/success.jsp</result>
+		</action>
+
+		<!-- Note:struts executes actions by checking from top to bottom . so incase 
+			of two actions (one with wildcard and another with exact action name), then 
+			struts will execute the one at beginning -->
+
+		<!-- To redirect search<<whatever>>.action to search<<whatever>>.jsp use 
+			below syntax. -->
+
+
+		<!-- <action name="search*" class="org.mukund.login.action.SearchAction"> 
+			<result name="success">/jsps/search{1}.jsp</result> </action> -->
+		<!-- There can be multiple wildcards like search*Page*Action {1} denotes 
+			first wildcard -->
+
+	</package>
+
+	<package name="loginPackage" namespace="/login"
+		extends="struts-default, json-default">
+
+
+
+		<!-- add this result-types in every package where you intend to use tiles -->
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult"></result-type>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
+		</result-types>
+
+		<!-- Interceptors are defined to do pre and post processing for an action 
+			call -->
+		<interceptors>
+			<interceptor name="sessionValidator"
+				class="com.mukund.interceptors.SessionValidateInterceptor"></interceptor>
+		</interceptors>
+
+		<!-- <action name="LoginAction" class="org.mukund.login.action.LoginAction"> 
+			<result name="success">/jsps/welcome.jsp</result> <result name="error">/Login.jsp</result> 
+			</action> -->
+
+		<action name="LoginAction" class="org.mukund.login.action.LoginAction"
+			method="signIn">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			<result name="success" type="tiles">/searchPage.tiles</result>
+			<result name="error">/Login.jsp</result>
+		</action>
+
+		<action name="SignOutAction" class="org.mukund.login.action.SignOutAction">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			<result name="success">/SignOut.jsp</result>
+
+		</action>
+
+		<action name="TutorialAction" class="org.mukund.login.action.TutorialAction">
+			<result name="success">/jsps/welcome.jsp</result>
+			<!-- If any error has occurred or field error messages are added by the 
+				validate method then the input result is called -->
+			<result name="input">/Login.jsp</result>
+		</action>
+
+		<!-- You can call any particular method instead of execute by adding the 
+			method attribute for the action tag. if nothing is given in method attribute 
+			then the execute method is called by default -->
+		<action name="TutorialAction" class="org.mukund.login.action.TutorialAction"
+			method="newMethod">
+			<result name="success">/jsps/welcome.jsp</result>
+			<!-- If any error has occurred or field error messages are added by the 
+				validate method then the input result is called -->
+			<result name="input">/Login.jsp</result>
+		</action>
+
+
+
+
+		<!-- Response from action in form of jsonobject -->
+		<action name="listTutorials" class="org.mukund.login.action.ListTutorialAction"
+			method="listTutorials">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="sessionValidator"></interceptor-ref>
+			<result type="json">
+				<param name="root">jsonObject</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+
+			<result name="input">/Login.jsp</result>
+			<result name="error">/jsps/error.jsp</result>
+		</action>
+
+
+	</package>
+
+
+<!-- default package -->
+	<package name="default1" namespace="/" extends="struts-default">
+	
+			<!-- add this result-types in every package where you intend to use tiles -->
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult"></result-type>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>
+		</result-types>
+	
+
+		<action name="SignUpAction" class="com.mukund.Signup.SignUpAction">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			
+			<result name="success">/CreateUser.jsp</result>
+
+		</action>
+		<action name="CreateNewUser" class="com.mukund.Signup.SignUpAction" method="signUp">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			<result name="input">/CreateUser.jsp</result>
+			<result name="success">/jsps/success.jsp</result>
+
+		</action>
+				<action name="CheckUserName" class="com.mukund.Signup.SignUpAction" method="chkUsrName">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			<result name="input">/CreateUser.jsp</result>
+			<result name="success">/jsps/success.jsp</result>
+
+		</action>
+		
+		<action name="proceedToPayment" class="com.mukund.transaction.action.TransactionAction" >
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			
+			<result name="success">/jsps/makePayment.jsp</result>
+
+		</action>
+		
+		<action name="fetchBalance" class="com.mukund.transaction.action.TransactionAction" method="fetchBalance">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			<result name="success" type="stream">
+			<param name="contentType">text/html</param>
+			<param name="inputName">acctBalance</param>
+			
+			</result>
+		
+		</action>
+
+	<action name="performTransaction" class="com.mukund.transaction.action.TransactionAction" method="performTran">
+			<!-- <result name="success" type="tiles">/searchPage.tiles</result> -->
+			<result type="json">
+				<param name="root">tranDetails</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+
+		</action>
+
+		
+		
+</package>
+
+</struts>

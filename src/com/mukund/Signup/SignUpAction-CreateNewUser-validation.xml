@@ -1,0 +1,80 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+
+<!-- These are field validators -->
+	<field name="signUpDTO.userId">
+		<field-validator type="requiredstring">
+			<message>Enter your User ID</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<param name="maxLength">15</param>
+			<param name="trim">true</param>
+			<message>
+				Username needs to be between 5 and 15 characters long
+			</message>
+		</field-validator>
+	</field>
+
+
+	<field name="signUpDTO.password">
+		<field-validator type="requiredstring">
+			<message>Enter your Password</message>
+		</field-validator>
+	</field>
+
+	<field name="signUpDTO.rePassword">
+		<field-validator type="requiredstring">
+			<message>Re-enter your Password</message>
+		</field-validator>
+		
+<!-- 		<field-validator type="expression">
+			<param name="expression">signUpDTO.password.equals(signUpDTO.rePassword)</param>
+       		<message>Passwords do not match</message>
+		</field-validator>
+ -->		       
+		
+	</field>
+
+	<field name="signUpDTO.userCategory">
+		<field-validator type="requiredstring">
+			<message key="requiredstring">Select User Category</message>
+		</field-validator>
+	</field>
+
+	<field name="signUpDTO.dob">
+		<field-validator type="requiredstring">
+			<message>Select your Date Of Birth</message>
+		</field-validator>
+	</field>
+
+	<field name="signUpDTO.mobileNumber">
+		<field-validator type="requiredstring">
+			<message>Enter your Mobile number</message>
+		</field-validator>
+	</field>
+
+	<!-- <field name="emailid"> <field-validator type="requiredstring"> <message>email 
+		is required.</message> </field-validator> <field-validator type="email"> 
+		<message> valid email is required.</message> </field-validator> <field-validator 
+		type="fieldexpression"> <param name="expression">emailid.endsWith('@gmail.com')</param> 
+		<message>Use only gmail.</message> </field-validator> </field> -->
+		
+		
+
+	<!-- These are plain expression validators which are used to validate between fields -->
+	<!-- Passwords retype Validator  -->   
+   <validator type="fieldexpression">
+	    <param name="fieldname">signUpDTO.password</param>
+	    <param name="fieldname">signUpDTO.rePassword</param>
+	    <param name="expression">signUpDTO.password.equals(signUpDTO.rePassword)</param>
+	    <message>Passwords do not match</message>
+	</validator>
+
+
+
+
+</validators>
