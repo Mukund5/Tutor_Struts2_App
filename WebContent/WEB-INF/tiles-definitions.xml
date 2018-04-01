@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" 
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+       
+       <!-- Here we define the base layout components of which are included in each tile which extends it. components include header, footer, breadcrumb etc -->
+       <definition name="baseLayout" template="/jsps/template/baseLayout.jsp">
+              <put-attribute name="header" value="/jsps/template/baseHeader.jsp"/>
+        <!--   <put-attribute name="menu" value="/WEB-INF/jsps/template/menuNavigation.jsp"/>  -->
+              <put-attribute name="body" value=""/>
+              <put-attribute name="footer" value="/jsps/template/baseFooter.jsp"/>   
+       </definition>
+       
+       
+       
+       <!-- Tile created for Search Page-->
+       <definition  name="/searchPage.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Search"></put-attribute>
+              <!-- <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/> -->
+              <!-- Page Specific content is given in the body part --> 
+              <put-attribute name="body" value="/jsps/welcome.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/LoginPage.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Login|My Tutor"></put-attribute>
+              <!-- <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/> -->
+              <!-- Page Specific content is given in the body part --> 
+              <put-attribute name="body" value="Login.jsp"></put-attribute>
+       </definition>
+       
+       <!-- session expiry page -->
+<!--        <definition  name="/expiry.tiles" extends="baseLayout">
+               <put-attribute name="title" cascade="true"  value="Exception Page"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/sessionexpiry.jsp"></put-attribute>
+       </definition>
+       temporary password change page
+       <definition  name="/passExpiry.tiles" extends="baseLayout">
+               <put-attribute name="title" cascade="true"  value="Change Temporary Password Pgae"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/passwordExpiry.jsp"></put-attribute>
+       </definition>
+       password change page
+       <definition  name="/passchange.tiles" extends="baseLayout">
+               <put-attribute name="title" cascade="true"  value="Change Password Pgae"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/temppasschange.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/search.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Search"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/search/search.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/systemadmin.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="systemadmin"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageGroup.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/groupadmin.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="groupadmin"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/groupDefinition.jsp"></put-attribute>
+       </definition>
+       
+       
+       <definition  name="/advancesearch.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="AdvanceSearch"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/search/advanceSearch.jsp"></put-attribute>
+       </definition>
+       <definition  name="/templategen.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Template Generator"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/templateGen/templateGenerator.jsp"></put-attribute>
+       </definition>
+       <definition  name="/uploaddoc.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share Documents"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/shareDoc/shareDoc.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/sharedoc.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share Documents"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/shareDoc/shareDocNew.jsp"></put-attribute>
+       </definition>
+       
+         User management
+       <definition  name="/adduser.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Create User"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/createuser.jsp"></put-attribute>
+       </definition>
+       
+       
+       <definition  name="/edituser.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Edit User"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/edituser.jsp"></put-attribute>
+       </definition>
+       <definition  name="/inductuser.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Induct User"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/inductuser.jsp"></put-attribute>
+       </definition>
+       <definition  name="/relieveuser.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Relieve User"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/relieveuser.jsp"></put-attribute>
+       </definition>
+       <definition  name="/inductSME.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Induct SME to Group"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/inductSME.jsp"></put-attribute>
+       </definition>
+       induct an executive 
+       <definition  name="/inductexecutive.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Induct an Executive"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/inductexecutive.jsp"></put-attribute>
+       </definition>
+       
+       end of induct of executive 
+       Start Edit an executive profile
+       <definition  name="/editexecutive.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Edit Executive"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/useradmin/editExecutive.jsp"></put-attribute>
+       </definition>
+       End of Edit an executive profile 
+       
+  Group Administration
+       <definition  name="/roledefinition.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Role Definition"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageGroupAdmin.jsp"></put-attribute>
+       </definition>
+       <definition  name="/groupdefinition.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Group Definition"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/groupDefinition.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/createSubject.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Secondary Head"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/createSubject.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/manageSubject.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Manage Secondary Head"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageSubject.jsp"></put-attribute>
+       </definition>
+       
+       
+       <definition  name="/createGroup.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Create Group"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/createGroup.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/manageParentGroup.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Manage Parent Group"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageParentGroup.jsp"></put-attribute>
+       </definition>
+
+       <definition  name="/createParentGroup.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Create Parent Group"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/createParentGroup.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/manageGroup.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Manage Group"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageGroup.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/createTertiary.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Tertiary"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/createTertiaryHead.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/manageTertiary.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Manage Tertiary"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageTertiaryHead.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/searchTertiary.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Tertiary"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/searchTertiary.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/createSecTertiary.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Sub-Tertiary"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/createSecTertiaryHead.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/manageSubTertiary.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Manage Sub-Tertiary"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/manageSubTertiaryHead.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/fileAdmin.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Create File"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/fileAdmin.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/manageFile.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Manage File"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/mangeFileAdmin.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/config.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Configuration"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/GroupAdmin/configuration.jsp"></put-attribute>
+       </definition>
+       
+       Inbox
+       
+       <definition  name="/aaproveAccess.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Approve Doc Access"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/inbox/approveDocAccess.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/aaproveSharing.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Approve Doc Sharing"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/inbox/approveDocSharing.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/myReqAccess.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="My Request Doc Access"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/inbox/myRepDocAccess.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/myReqSharing.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="My Request Doc Sharing"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/inbox/myReqDocSharing.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/workspace.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="My Request Doc Sharing"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/workspace/DynaTree.jsp"></put-attribute>
+       </definition>
+       
+       profile
+       <definition name="/profile.tiles" extends="baseLayout">
+       <put-attribute name="title" cascade="true" value="My Profile" />
+       <put-attribute name="breadCrumb" value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp" />
+       <put-attribute name="body" value="/WEB-INF/jsps/profile/profile.jsp" />
+       </definition>
+       
+       <definition  name="/ChangePassword.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Change Password"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/profile/ChangePassword.jsp"></put-attribute>
+       </definition>
+       
+       Case
+       <definition  name="/createcase.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Create Case"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/casemanagement/createcase.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/searchcase.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Search Case/Workspace"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/casemanagement/searchcase.jsp"></put-attribute>
+       </definition>
+       
+       IR Report
+       
+       <definition  name="/ValidatePerson.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Interrogation Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/validatePerson.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/createnewIR.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Interrogation Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/createIRreport.jsp"></put-attribute>
+       </definition>
+       
+       create Dossier tiles 
+       <definition  name="/createnewDossier.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Dossier Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/createDossier.jsp"></put-attribute>
+       </definition>
+       
+       
+       <definition  name="/searchIR.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Search IR"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/IRReportAnalysis.jsp"></put-attribute>
+       </definition>
+       
+       
+       <definition  name="/saveIR.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share Interrogation Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/saveIR.jsp"></put-attribute>
+       </definition>
+       
+                     <definition  name="/notes.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Notes"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/notesBuilder/noteBuilder.jsp"></put-attribute>
+       </definition>
+       
+       
+              <definition  name="/manageNotes.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Notes"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/notesBuilder/manageNotes.jsp"></put-attribute>
+       </definition>
+       
+       
+              <definition  name="/createNewNotes.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Notes"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/notesBuilder/createNotes.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/createSummary.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Notes"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/notesBuilder/createSummary.jsp"></put-attribute>
+       </definition>
+       
+              <definition  name="/notes-HQ.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Notes"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/notesBuilder/notes-HQ.jsp"></put-attribute>
+       </definition>
+       
+       <definition  name="/createSummary-HQ.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Notes"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/notesBuilder/createSummary-HQ.jsp"></put-attribute>
+       </definition>
+       
+       
+       <definition  name="/searchIncident.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Search Incident"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incidentreport/searchIncidentReport.jsp"></put-attribute>
+       </definition>
+       edit ir here
+        <definition  name="/editIR.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Edit IR"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/iredit/editIR.jsp"></put-attribute>
+       </definition>
+       <definition  name="/IREdit.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="IR Edit"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/createPendingIR.jsp"></put-attribute>
+       </definition>
+       
+       Pending IR Start
+       <definition  name="/pendingIR.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Pending IR"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/pendingIR.jsp"></put-attribute>
+       </definition>
+       
+              <definition  name="/createPendingIR.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Pending Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/createPendingIR.jsp"></put-attribute>
+       </definition>
+       
+       Edit dossier
+        <definition  name="/editDossier.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="edit dossier"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/iredit/EditDossier.jsp"></put-attribute>
+       </definition>
+       <definition  name="/editDossierListDoc.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="edit dossier list"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/iredit/EditDossierList.jsp"></put-attribute>
+       </definition>
+       
+        end of Edit dossier
+       
+       Tiles for Pending IR Dossier
+        <definition  name="/createPendingIRDossier.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Dossier Pending Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/createPendingIRDossier.jsp"></put-attribute>
+       </definition>
+       <definition  name="/createEditIRDossier.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Dossier Edit Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/createEditIRDossier.jsp"></put-attribute>
+       </definition>
+       
+       Pending IR End
+       Share IR Report Start
+       <definition  name="/shareIRReport.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share IR Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/ShareIRreports.jsp"></put-attribute>
+       </definition>
+
+       Job Creation Start
+              <definition  name="/jobcreation.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Job Creation"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/SystemAdmin/jobcreation.jsp"></put-attribute>
+                     </definition>
+                           <definition  name="/jobScheduling.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Job Scheduling"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/SystemAdmin/jobScheduling.jsp"></put-attribute>
+                     </definition>
+       <definition  name="/jobmanagement.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Job Management"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/SystemAdmin/jobmanagement.jsp"></put-attribute>           
+       </definition>
+              <definition  name="/statusinfo.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Status Info"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/SystemAdmin/statusInfo.jsp"></put-attribute>           
+       </definition>
+       
+         <definition  name="/editIncidentList.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Edit"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incidentedit/editIncidentList.jsp"></put-attribute>
+       </definition>
+        create Incident tiles 
+        <definition  name="/createIncident.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Incident Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incident/createIncident.jsp"></put-attribute>
+       </definition>
+       incident list
+     
+       incident list
+          <definition  name="/editIncident.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Edit Incident Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incident/createPendingIncident.jsp"></put-attribute>
+       </definition>
+        <definition  name="/editIncidentReport.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Edit Incident Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incident/createPendingIncident.jsp"></put-attribute>
+       </definition>
+       <definition  name="/saveIncident.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share Incident Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incident/saveIncident.jsp"></put-attribute>
+       </definition>
+       
+      
+       log mang 
+       <definition  name="/crawlerlog.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Crawler Log Mang"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/logmang/crawlerLog.jsp"></put-attribute>
+                     </definition>
+                     <definition  name="/solrlog.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Solr Log Mang"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/logmang/solrLog.jsp"></put-attribute>
+                     </definition>
+                     <definition  name="/applog.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Application Log Mang"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/logmang/appLog.jsp"></put-attribute>
+                     </definition>
+                      
+                       Incident Share Start
+                <definition  name="/shareIncidentReport.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share Incident Report"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incident/ShareIncidentReports.jsp"></put-attribute>
+       		</definition>
+        		 Incident Share End
+        		 
+        		 <definition  name="/incidentDashboard.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="View Your Incidents"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/incident/incidentDashboard.jsp"></put-attribute>
+       		</definition>
+       		 <definition  name="/saveBlankReport.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Blank Report Generatuib"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/irreport/blankReport.jsp"></put-attribute>
+       </definition>
+		
+		 My Profile Start
+       <definition  name="/profile.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="My Profile"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/profile/profile.jsp"></put-attribute>
+       </definition>
+        My Profile End
+       
+        Reset Password Start
+       <definition  name="/reset.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Change Password"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/profile/ChangePassword.jsp"></put-attribute>
+       </definition>
+       Reset Password End
+       
+        Error page Start
+       <definition  name="/errorStatus.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Exception Pgae"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/error.jsp"></put-attribute>
+       </definition>
+       Error page End
+       
+        Contact Tab Start
+       <definition  name="/contact.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Contact Us"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/contactus.jsp"></put-attribute>
+       </definition>
+       Contact Tab End
+       
+         Share Histroy Start
+          <definition  name="/shareHistory.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share IR History and Status"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/shareDoc/ShareIRHistory.jsp"></put-attribute>
+       </definition>
+          <definition  name="/shareIncidentHistory.tiles" extends="baseLayout">
+              <put-attribute name="title" cascade="true"  value="Share Incident History and Status"></put-attribute>
+              <put-attribute name="breadCrumb"  value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp"/>
+              <put-attribute name="body" value="/WEB-INF/jsps/shareDoc/ShareIncidentHistory.jsp"></put-attribute>
+       </definition>
+         Share History  End
+        
+        ALert Notification Starts 
+        <definition name="/viewNotification.tiles" extends="baseLayout">
+				<put-attribute name="title" value="View Notification" cascade="true" />
+				<put-attribute name="breadCrumb" value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp" />
+				<put-attribute name="body" value="/WEB-INF/jsps/Alert/viewNotification.jsp" />
+			</definition>
+			
+			<definition name="/issueNotification.tiles" extends="baseLayout">
+				<put-attribute name="title" value="View Notification" cascade="true" />
+				<put-attribute name="breadCrumb" value="/WEB-INF/jsps/breadcrumb/breadCrumb.jsp" />
+				<put-attribute name="body" value="/WEB-INF/jsps/Alert/issueNotification.jsp" />
+			</definition>
+ -->       <!-- ALert Notification Ends -->
+
+
+</tiles-definitions>
